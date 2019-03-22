@@ -1,12 +1,5 @@
 {
   "presets": [
-    "@babel/env",
-    "@babel/react"
+    "@babel/preset-env",
   ],
-  "plugins": [
-    "transform-runtime",
-    "transform-es2015-destructuring",
-    "transform-es2015-parameters",
-    "transform-object-rest-spread"
-  ]
 }

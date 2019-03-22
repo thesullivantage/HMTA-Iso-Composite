@@ -7,9 +7,10 @@
     "net": "net-browserify"
   },
   "scripts": {
+    "prestart": "rimraf dist && babel server/server.js -d dist",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "nodemon server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start:prod": "nodemon dist/server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*' ./dist/server.js \" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
@@ -19,20 +20,20 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
+    "@babel/register": "^7.4.0",
+    "babel-core": "^7.0.0-bridge",
     "concurrently": "^3.5.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "babel-cli": "^6.26.0",
-    "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "cloudinary": "^1.11.0",
