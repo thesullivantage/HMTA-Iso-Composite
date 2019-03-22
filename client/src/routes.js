@@ -1,8 +1,5 @@
-import Home from './components/Home';
-import About from './components/About';
-import NotFound from './components/NotFound';
-import Root from './components/Root';
-
+import Demo from "./pages/demo";
+import Root from "./iso/Root";
 const routes = [
   {
     component: Root,
@@ -10,16 +7,7 @@ const routes = [
       {
         path: '/',
         exact: true,
-        component: Home
-      },
-      {
-        path: '/about',
-        component: About
-      },
-      {
-        path: '*',
-        restricted: false,
-        component: NotFound
+        component: Demo 
       }
     ]
   }
